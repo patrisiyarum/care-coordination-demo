@@ -696,6 +696,396 @@
   border: 0;
 }
 
+/* Case → plan POC */
+.plan-poc {
+  background: #fff;
+  border-block: 1px solid var(--line);
+}
+
+.plan-poc__badge {
+  display: inline-block;
+  margin: 0 0 0.5rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.1);
+  color: #1d4ed8;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.plan-poc__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: clamp(1.25rem, 3vw, 2rem);
+  align-items: start;
+}
+
+@media (max-width: 960px) {
+  .plan-poc__layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.plan-poc__input-panel {
+  position: sticky;
+  top: 5.5rem;
+}
+
+@media (max-width: 960px) {
+  .plan-poc__input-panel {
+    position: static;
+  }
+}
+
+.plan-poc__label {
+  display: block;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.plan-poc__textarea {
+  width: 100%;
+  min-height: 12rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  font: inherit;
+  font-size: 0.98rem;
+  color: var(--ink);
+  resize: vertical;
+  background: var(--surface);
+}
+
+.plan-poc__textarea:focus {
+  outline: none;
+  border-color: rgba(37, 99, 235, 0.45);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.plan-poc__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 0.85rem;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.plan-poc__demo {
+  margin-right: auto;
+}
+
+.plan-poc__hint {
+  margin: 0.65rem 0 0;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.plan-poc__hint code {
+  font-size: 0.78rem;
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  background: var(--surface);
+}
+
+.plan-poc__error {
+  margin: 0.75rem 0 0;
+  padding: 0.65rem 0.75rem;
+  border-radius: var(--radius);
+  background: rgba(220, 38, 38, 0.08);
+  border: 1px solid rgba(220, 38, 38, 0.22);
+  color: #991b1b;
+  font-size: 0.9rem;
+}
+
+.plan-poc__error code {
+  font-size: 0.85em;
+}
+
+.plan-poc__result {
+  min-height: 12rem;
+  padding: 0.25rem;
+}
+
+.plan-poc__empty {
+  padding: 1.25rem;
+  border-radius: var(--radius);
+  border: 1px dashed var(--line);
+  background: var(--surface);
+}
+
+.plan-poc__empty-title {
+  margin: 0 0 0.75rem;
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+
+.plan-poc__empty-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.plan-poc__empty-list li {
+  margin-bottom: 0.5rem;
+}
+
+.plan-poc__loading {
+  margin: 0;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.plan-poc__output {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.plan-poc__disclaimer {
+  margin: 0;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius);
+  background: rgba(234, 179, 8, 0.12);
+  border: 1px solid rgba(234, 179, 8, 0.35);
+  color: var(--ink);
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.plan-poc__algo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.plan-poc__algo strong {
+  color: var(--ink);
+  font-size: 0.9rem;
+}
+
+.plan-poc__h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+
+.plan-poc__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.plan-poc__tags li {
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent-hover);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.plan-poc__summary {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.plan-poc__columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+@media (max-width: 720px) {
+  .plan-poc__columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+.plan-poc__cards {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.plan-poc__card {
+  padding: 1rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: #fff;
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.04);
+}
+
+.plan-poc__card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.plan-poc__name {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.plan-poc__score {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent-hover);
+  white-space: nowrap;
+}
+
+.plan-poc__role {
+  margin: 0.25rem 0 0.5rem;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.plan-poc__reasons {
+  margin: 0;
+  padding-left: 1rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.plan-poc__reasons li {
+  margin-bottom: 0.25rem;
+}
+
+.plan-poc__strengths-label {
+  margin: 0.65rem 0 0.25rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink);
+}
+
+.plan-poc__strengths {
+  margin: 0;
+  padding-left: 1rem;
+  font-size: 0.85rem;
+  color: var(--ink);
+}
+
+.plan-poc__strengths li {
+  margin-bottom: 0.2rem;
+}
+
+.plan-poc__horizon {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.plan-poc__timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.plan-poc__phase {
+  padding: 1rem 1rem 1rem 1.25rem;
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: var(--surface);
+}
+
+.plan-poc__phase-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin-bottom: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent-hover);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.plan-poc__phase-window {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.plan-poc__phase-title {
+  margin: 0 0 0.35rem;
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+
+.plan-poc__phase-sum {
+  margin: 0 0 0.5rem;
+  font-size: 0.92rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.plan-poc__phase-owner {
+  margin: 0 0 0.5rem;
+  font-size: 0.88rem;
+  color: var(--ink);
+}
+
+.plan-poc__phase-steps {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.88rem;
+  color: var(--ink);
+  line-height: 1.45;
+}
+
+.plan-poc__phase-steps li {
+  margin-bottom: 0.35rem;
+}
+
+.plan-poc__checkpoints {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.plan-poc__checkpoints li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 8px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  font-size: 0.88rem;
+}
+
+.plan-poc__checkpoints span {
+  color: var(--muted);
+}
+
 .footer {
   padding: 2.5rem 0 2rem;
   border-top: 1px solid var(--line);

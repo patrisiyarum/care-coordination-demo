@@ -5,6 +5,7 @@ import dotenv from 'dotenv'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 dotenv.config({ path: join(__dirname, '.env') })
 import cors from 'cors'
+import { generateCarePlan } from './matchPlan.js'
 import express from 'express'
 import rateLimit from 'express-rate-limit'
 import OpenAI from 'openai'
@@ -70,6 +71,48 @@ function normalizeMessages(body) {
   }
   return null
 }
+
+const MIN_PLAN_CHARS = 30
+const MAX_PLAN_CHARS = 8000
+
+app.post('/api/plan', (req, res) => {
+  const raw =
+    typeof req.body?.caseDescription === 'string'
+      ? req.body.caseDescription
+      : typeof req.body?.description === 'string'
+        ? req.body.description
+        : null
+
+  if (raw == null || typeof raw !== 'string') {
+    res.status(400).json({
+      error: 'Send JSON { caseDescription: string } describing the situation.',
+    })
+    return
+  }
+
+  const text = raw.trim()
+  if (text.length < MIN_PLAN_CHARS) {
+    res.status(400).json({
+      error: `Case description should be at least ${MIN_PLAN_CHARS} characters for this POC.`,
+    })
+    return
+  }
+  if (text.length > MAX_PLAN_CHARS) {
+    res.status(400).json({
+      error: `Case description must be under ${MAX_PLAN_CHARS} characters.`,
+    })
+    return
+  }
+
+  try {
+    const plan = generateCarePlan(text)
+    res.json(plan)
+  } catch (err) {
+    const message = err instanceof Error ? err.message : 'Unknown error'
+    console.error('[api/plan]', message)
+    res.status(500).json({ error: 'Plan generation failed', detail: message })
+  }
+})
 
 app.post('/api/chat', async (req, res) => {
   const apiKey = process.env.OPENAI_API_KEY

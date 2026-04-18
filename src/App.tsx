@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { CasePlanPoc } from './components/CasePlanPoc'
 import { CoordinationAssistant } from './components/CoordinationAssistant'
 import './App.css'
 
@@ -86,6 +87,9 @@ export default function App() {
           <nav className="nav" aria-label="Primary">
             <ul className="nav__links">
               <li>
+                <a href="#plan-poc">Plan POC</a>
+              </li>
+              <li>
                 <a href="#who-we-serve">Who we serve</a>
               </li>
               <li>
@@ -121,6 +125,9 @@ export default function App() {
         </div>
         {menuOpen ? (
           <div className="shell nav__mobile" id="mobile-nav">
+            <a href="#plan-poc" onClick={() => setMenuOpen(false)}>
+              Plan POC
+            </a>
             <a href="#who-we-serve" onClick={() => setMenuOpen(false)}>
               Who we serve
             </a>
@@ -174,8 +181,8 @@ export default function App() {
                 >
                   Tell us about your case
                 </a>
-                <a className="btn btn--ghost" href="#who-we-serve">
-                  How we help
+                <a className="btn btn--ghost" href="#plan-poc">
+                  Try match POC
                 </a>
               </div>
               <p className="hero__note">
@@ -237,6 +244,8 @@ export default function App() {
             </div>
           </div>
         </section>
+
+        <CasePlanPoc />
 
         <section id="who-we-serve" className="section">
           <div className="shell">
@@ -379,6 +388,9 @@ export default function App() {
           <div className="footer__cols">
             <h3>Services</h3>
             <ul>
+              <li>
+                <a href="#plan-poc">Plan POC</a>
+              </li>
               <li>
                 <a href="#who-we-serve">Who we serve</a>
               </li>

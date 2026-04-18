@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { CoordinationAssistant } from './components/CoordinationAssistant'
 import './App.css'
 
 const SITE = {
@@ -91,6 +92,9 @@ export default function App() {
                 <a href="#reviews">Reviews</a>
               </li>
               <li>
+                <a href="#assistant">Assistant</a>
+              </li>
+              <li>
                 <a href={SITE.contactPage} target="_blank" rel="noopener noreferrer">
                   Contact
                 </a>
@@ -122,6 +126,9 @@ export default function App() {
             </a>
             <a href="#reviews" onClick={() => setMenuOpen(false)}>
               Reviews
+            </a>
+            <a href="#assistant" onClick={() => setMenuOpen(false)}>
+              Assistant
             </a>
             <a
               href={SITE.contactPage}
@@ -307,6 +314,8 @@ export default function App() {
           </div>
         </section>
 
+        <CoordinationAssistant />
+
         <section id="contact" className="section">
           <div className="shell">
             <div className="cta">
@@ -375,6 +384,9 @@ export default function App() {
               </li>
               <li>
                 <a href="#reviews">Reviews</a>
+              </li>
+              <li>
+                <a href="#assistant">Assistant</a>
               </li>
               <li>
                 <a href={SITE.contactPage} target="_blank" rel="noopener noreferrer">

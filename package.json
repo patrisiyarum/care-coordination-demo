@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "dev:server": "npm --prefix server run dev",
-    "dev:all": "concurrently -k \"vite\" \"npm --prefix server run dev\"",
+    "dev:all": "concurrently -k -n web,api -c cyan,magenta \"vite\" \"npm --prefix server run dev\"",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"

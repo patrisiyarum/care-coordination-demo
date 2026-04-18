@@ -1,4 +1,5 @@
 import { useCallback, useRef, useState } from 'react'
+import { apiUrl } from '../api'
 
 type ChatRole = 'user' | 'assistant'
 
@@ -6,8 +7,6 @@ type ChatMessage = {
   role: ChatRole
   content: string
 }
-
-const API_BASE = import.meta.env.VITE_API_URL ?? ''
 
 export function CoordinationAssistant() {
   const [messages, setMessages] = useState<ChatMessage[]>([])
@@ -27,7 +26,7 @@ export function CoordinationAssistant() {
     setLoading(true)
 
     try {
-      const res = await fetch(`${API_BASE}/api/chat`, {
+      const res = await fetch(apiUrl('/api/chat'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ messages: thread }),

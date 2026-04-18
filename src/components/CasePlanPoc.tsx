@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { apiUrl } from '../api'
 
 type PlanResponse = {
   poc: boolean
@@ -40,8 +41,6 @@ type PlanResponse = {
   }
 }
 
-const API_BASE = import.meta.env.VITE_API_URL ?? ''
-
 const DEMO_TEXT = `I was rear-ended last Tuesday on I-85 near Atlanta while commuting to work. 
 My neck and upper back hurt, and I've had headaches since the crash. I went to urgent care 
 the same day. I need help scheduling PT and imaging if my doctor orders it, and I'm also 
@@ -59,7 +58,7 @@ export function CasePlanPoc() {
     setLoading(true)
     setPlan(null)
     try {
-      const res = await fetch(`${API_BASE}/api/plan`, {
+      const res = await fetch(apiUrl('/api/plan'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ caseDescription: text }),
